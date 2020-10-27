@@ -3,6 +3,29 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Question from "./components/Question";
 import Welcome from "./components/Welcome";
 import Results from "./components/Results";
+import styled from "styled-components";
+
+const PageContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Average', serif;
+  h1 {
+    font-family: 'Grenze', serif;
+  }
+   
+  img {
+    margin: 2% auto;
+    display: block;
+    width: 30%;
+  }
+  @media (max-width: 500px) {
+    img {
+      width: 80%;
+      margin-top: 5%;
+    }
+  }
+`
 
 let houses = {
   Lannister: 0,
@@ -28,14 +51,17 @@ class App extends React.Component {
   setWinner(winner) {
     this.setState({"winner": winner});
   }
+
   setHouses(obj){
     this.setState(obj);
   }
+
   render() {
     return (
       <Router> 
-        <div className="App">
+        <PageContainer>
           <header className="App-header">
+            <h1>THE GoT SORTING HAT</h1>
           </header>
           <Switch>
             <Route path="/results">
@@ -58,7 +84,8 @@ class App extends React.Component {
               />
             </Route>
           </Switch>
-        </div>
+          <img src="/assets/hat.jpg" alt="smiling jack 'o lantern wearing a black witch hat"/>
+        </PageContainer>
       </Router>
     ); 
   };

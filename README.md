@@ -27,3 +27,6 @@ Welcome to Hogwarts, the School of Whitchcraft and Wizardy. One of the tools tha
   - Use Firebase to build out a Login System so that as a user I can login to the app and have all messages be directed at my name.
   - All data tracked through the app should be stored in firebase.
 - Allow me (the user) the ability to share my hogwarts house decision to my social media platform of choice.
+
+
+https://www.pexels.com/@gabby-k https://www.pexels.com/photo/jack-o-lantern-with-black-hat-5634828/

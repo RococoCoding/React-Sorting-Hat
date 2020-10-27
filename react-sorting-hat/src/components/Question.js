@@ -1,5 +1,28 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  label {
+    display: inline-block;
+    margin: 3%;
+  }
+  p {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    margin: 5% auto;
+  }
+`
 
 let questions = [
   { 
@@ -217,22 +240,25 @@ class Question extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submit}>
+      <StyledForm onSubmit={this.submit}>
         <p>{questions[this.state.page].text}</p>
-        {questions[this.state.page].options.map(option => {
-          return (
+        <div>
+          {questions[this.state.page].options.map((option, idx) => {
+            return (
             <label key={option.text} htmlFor={option.text}>
               <input 
                 type="radio"
                 name="options"
                 value={JSON.stringify(option.score)}
                 onChange={this.pick}
+                required
               />{option.text}
             </label>
-          );
-        })}
+            );
+          })}
+        </div>
         <button type="submit">Submit</button>
-      </form>
+      </StyledForm>
     )
   }
 }
